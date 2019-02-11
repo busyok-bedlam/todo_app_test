@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 const path = require('path');
 
 const config = {
@@ -25,6 +27,9 @@ const config = {
       template: path.resolve(__dirname, 'src', 'template.ejs')
     })
   ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin()],
+  },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
