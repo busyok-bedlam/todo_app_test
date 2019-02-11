@@ -13,8 +13,8 @@ function * todoDelWatcher(){
   yield takeEvery(removeTodo,todoDelWorker);
 }
 
-function * todoDelWorker({payload: id}){
-    debugger
+function * todoDelWorker({payload}){
+  // debugger
   yield call(delTodo, payload );
-  yield put(deleteTodo(id));
+  yield put(deleteTodo(payload));
 }

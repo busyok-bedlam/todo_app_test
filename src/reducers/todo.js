@@ -9,7 +9,10 @@ const todoReducer = handleActions({
     [todoActions.setTodos]: (state, { payload }) => [...payload],
     [todoActions.setTodo]: (state,{ payload }) => [...state,payload],
     [todoActions.deleteTodos]: (state) => [],
-    [todoActions.deleteTodo]: (state, { payload: id }) => [...state.filter(item => item.id === id)],
+    [todoActions.deleteTodo]: (state, { payload }) => {
+        const id = payload;
+        return [...state.filter(item => item._id !== id)]
+    } ,
     [todoActions.updateTodo]: (state, { payload: { id,newData } }) => [
         ...state.slice(0,getInd(state,id)),
         {...state[getInd(state,id)],...newData},

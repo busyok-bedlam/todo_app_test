@@ -1,4 +1,6 @@
 import React,{ Component } from 'react';
+import { Link } from 'react-router-dom'
+
 
 
 class ListItem extends Component {
@@ -9,7 +11,7 @@ class ListItem extends Component {
         oldValue: ''
     }
     toggleEdit = e => {
-        e.preventDefault();
+        // e.preventDefault();
         const { data: { title }} = this.props;
         this.setState({ edit: !this.state.edit, inputValue: title, oldValue: title })
     }
@@ -43,9 +45,10 @@ class ListItem extends Component {
         }
     }
     deleteHandler = e => {
+        // debugger
         e.preventDefault();
         const { data: {_id}, removeTodo } = this.props;
-        removeTodo({ id: _id})
+        removeTodo(_id)
     }
     render = () => {
         const { data: {_id, title, body,done} } = this.props;
@@ -62,14 +65,14 @@ class ListItem extends Component {
                         <i className="fas fa-times"></i>
                     </button>
                     {
-                        !edit ? <button type="button" className="btn btn-light">{title}</button> 
+                        !edit ? <Link to={`/todo/${_id}`}><button type="button" className="btn btn-light">{title}</button></Link>
                         : <input 
                             value={inputValue} 
                             onChange={this.changeHandler} 
                             onBlur={this.blurHandler}
                             onKeyDown={this.keyPressHandler}
                             ref={node => this.input = node}
-                            autoFocus={true}
+                            autoFocus={{edit}}
                         />
                     }
                     
