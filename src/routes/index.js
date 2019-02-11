@@ -4,7 +4,7 @@ import '../styles/main.css'
 
 import ListPage from '../containers/list-page';
 import Header from '../components/header';
-import TodoComponent from '../components/todo-component';
+import TodoComponent from '../containers/todo-page';
 
 export default () => (
   <div className="container-fluid wrapper">

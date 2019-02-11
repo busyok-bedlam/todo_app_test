@@ -1,20 +1,20 @@
 import { fork, takeEvery, call, put, delay  } from 'redux-saga/effects'
 
 
-import { getTodos as getTodosAction,setTodos } from "../actions/todo-actions";
-import { getTodos } from '../api'
+import { getTodo as getTodoAction } from "../actions/todo-actions";
+import { setCurrent } from '../actions/current-actions';
+import { getTodo } from '../api'
 
-export default function * todoListSaga(){
-  yield fork(getTodosWatcher);
+export default function * getTodoSaga(){
+  yield fork(getTodoWatcher);
 }
 
-function * getTodosWatcher(){
-  yield takeEvery(getTodosAction, getTodosWorker)
+function * getTodoWatcher(){
+  yield takeEvery(getTodoAction, getTodoWorker)
 }
 
-function * getTodosWorker(){
+function * getTodoWorker({ payload }){
   
-  const {todos} = yield call(getTodos);
-
-  yield put( setTodos(todos));
+  const {todo} = yield call(getTodo, payload);
+  yield put(setCurrent(todo));
 }

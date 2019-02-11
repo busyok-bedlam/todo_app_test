@@ -2,7 +2,7 @@ import { createAction } from 'redux-actions';
 
 export const setTodos = createAction('setTodos');
 export const getTodos = createAction('getTodos');
-export const getTodo = createAction('getTodos');
+export const getTodo = createAction('getTodo');
 export const setTodo = createAction('setTodo');
 export const addTodo = createAction('addTodo');
 export const deleteTodo = createAction('deleteTodo');
