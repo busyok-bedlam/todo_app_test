@@ -55,7 +55,7 @@ class ListItem extends Component {
         const { edit, inputValue } = this.state;
         return (
             <>
-                <li className="list-group-item d-flex align-items-center justify-content-start border border-dark">
+                <li style={{height: "50px"}} className="list-group-item d-flex align-items-center justify-content-start border border-dark">
                     <input className="mr-3" type="checkbox" checked={!!done} onChange={this.toggleDone} />
                     <button type="button" className="mr-3 btn btn-info" onClick={this.toggleEdit}>
                         <i className="fas fa-edit"></i>
