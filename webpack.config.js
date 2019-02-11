@@ -9,7 +9,7 @@ const config = {
   },
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader" },
       {
         test: /\.css$/,
         use: [
@@ -28,7 +28,7 @@ const config = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000,
+    port: 5000,
     historyApiFallback: true
   },
   devtool: 'source-map'

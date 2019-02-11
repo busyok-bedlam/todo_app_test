@@ -1,5 +1,4 @@
 import "@babel/polyfill";
-import 'antd/dist/antd.css';
 
 import React from 'react';
 import { render } from 'react-dom';
