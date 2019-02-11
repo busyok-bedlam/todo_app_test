@@ -3,6 +3,7 @@ import React from 'react';
 const SendForm = ({ addTodo }) => {
     let input = null;
     let textarea = null;
+    let form = null;
     const bothValues = (title,body) => title && body && {title,body} || null;
     const submitHandler = e => {
         e.preventDefault();
@@ -11,10 +12,19 @@ const SendForm = ({ addTodo }) => {
         bothValues(title,body) && addTodo(bothValues(title,body));
         input.value = "";
         textarea.value = "";
-
+    }
+    const onPressEnter = e => {
+        if(e.keyCode == 13 && e.shiftKey == false) {
+            e.preventDefault();
+            form.dispatchEvent(new Event("submit"));
+            textarea.autoFocus = false
+        }
     }
     return (
-        <form onSubmit={submitHandler}>
+        <form 
+            onSubmit={submitHandler}
+            ref={node => form = node}
+        >
 
             <div className="form-group input-group mt-5">
                 <input 
@@ -35,7 +45,8 @@ const SendForm = ({ addTodo }) => {
             <div className="form-group" >
                 <textarea 
                     required
-                    className="form-control" 
+                    className="form-control"
+                    onKeyDown={onPressEnter}
                     rows="3" 
                     placeholder="DESCRIPTION" 
                     ref={ node => textarea = node }    

@@ -11,7 +11,6 @@ export default () => (
     <Header/>
     <BrowserRouter>
         <Switch>
-          {/* <Route exact path="/" render={() => <Redirect to="/todos"/> } /> */}
           <Route exact path="/" component={ListPage} />
           <Route path="/todo/:id" component={TodoComponent}/>
         </Switch>

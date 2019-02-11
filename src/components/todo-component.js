@@ -7,12 +7,29 @@ class TodoComponent extends Component {
         const { params: { id }} = match;
         getTodo(id)
     }
+    clickHandler = e => {
+        this.props.clearCurrent();
+    }
     render(){
         return (
-            <div>
-                <div>HELLO</div>
-                <Link to="/">BACK</Link>
-            </div>
+            <>
+            {
+                this.props.current ? 
+                    <div className="row">
+                        <div className="col-4 offset-4 border border-dark">
+                            <h3>{this.props.current.title}</h3>
+                        </div>
+                        <div className="col-4 offset-4 border border-dark">
+                            <p>{this.props.current.body}</p>
+                        </div>
+                        <div className="col-4 offset-4 border border-dark">
+                            <Link to="/" onClick={this.clickHandler}>BACK</Link>
+                        </div>
+                    </div>
+                    : <></>
+            }
+                
+            </>
         )
     }
 }

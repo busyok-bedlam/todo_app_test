@@ -65,7 +65,7 @@ class ListItem extends Component {
                         <i className="fas fa-times"></i>
                     </button>
                     {
-                        !edit ? <Link to={`/todo/${_id}`}><button type="button" className="btn btn-light">{title}</button></Link>
+                        !edit ? <Link to={`/todo/${_id}`}><button style={{textDecoration: done ? 'line-through' : ''}} type="button" className="btn btn btn-link">{title}</button></Link>
                         : <input 
                             value={inputValue} 
                             onChange={this.changeHandler} 
