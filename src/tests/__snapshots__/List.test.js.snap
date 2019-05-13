@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<List /> renders correctly 1`] = `
+<List
+  todos={
+    Array [
+      Object {
+        "_id": 5,
+        "body": "dsklhfdjksnvmc",
+        "done": true,
+        "title": "some title",
+      },
+      Object {
+        "_id": 6,
+        "body": "xxxxxxxx",
+        "done": false,
+        "title": "title",
+      },
+    ]
+  }
+>
+  <div
+    style={
+      Object {
+        "height": "50vh",
+        "overflowY": "scroll",
+      }
+    }
+  >
+    <Component
+      data={
+        Object {
+          "_id": 5,
+          "body": "dsklhfdjksnvmc",
+          "done": true,
+          "title": "some title",
+        }
+      }
+      key="0"
+    >
+      <div>
+        List item
+      </div>
+    </Component>
+    <Component
+      data={
+        Object {
+          "_id": 6,
+          "body": "xxxxxxxx",
+          "done": false,
+          "title": "title",
+        }
+      }
+      key="1"
+    >
+      <div>
+        List item
+      </div>
+    </Component>
+  </div>
+</List>
+`;

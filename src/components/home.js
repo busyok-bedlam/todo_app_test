@@ -4,11 +4,11 @@ import Header from './header';
 
 const Home = () => {
 
-    return (
-        <div className='container'>
-          <Header/>
-        </div>
-    )
+  return (
+    <div className='container'>
+      <Header />
+    </div>
+  )
 }
 
 export default Home;
