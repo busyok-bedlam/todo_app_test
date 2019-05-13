@@ -5,10 +5,9 @@ describe('action tests', () => {
     it('setTodo action test', () => {
         const payload = {
             id: 1,
-            body: 'Body1',
+            body: 'Body',
             title: 'Title1'
         }
-        const title = 'Title';
         const expectedAction = {
             type: 'setTodo',
             payload,
